@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML5 audio</title>
+		<style>
+			#player {
+				height: 50px;
+				padding: 10px;
+				position:relative;
+				width: 300px;
+			}
+			button {
+				background: #666;
+				border:1px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+				bottom: 10px;
+				color: #fff;
+				padding: 5px;
+				position:absolute;
+				width:45px;
+			}
+			#audioStop {
+				font-size:22px;
+				left: 65px;
+				line-height: 11px;
+			}
+			#audioPlay.hidden, #audioPause.hidden { 
+				display:none; 
+			}
+			#audioSeek {
+				background: #ccc;
+				border: 1px solid #000;
+				-moz-border-radius: 10px;
+				border-radius: 10px;
+				display:block;
+				height:2px;
+			}
+			#audioLoaded {
+				background: #0c0;
+				border: 1px solid #0c0;
+				-moz-border-radius: 10px;
+				border-radius: 10px;
+				display:block;
+				height:1px;
+			}
+			#audioTimes {
+				float:right;
+				list-style:none;
+				margin: 5px 0 0;
+			}
+			#audioTimes li {
+				font:bold 13px Arial, Helvetica sans-serif;
+				float: left;
+			}
+			#audioTimes li:first-child {
+				border-right: 1px solid #000;
+				margin-right: 15px;
+				padding-right: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<audio id="audio">
+			<source src="music/RubyMyDear.mp3" type="audio/mpeg" />
+		</audio>
+
+		<div id="player">
+			<audio src="media/audio.mp3"></audio>
+			<div class="playerControls">
+				<button id="audioPlay" title="Play" 
+				        onclick="playPause();">&#x25ba;</button>
+				<button id="audioPause" class="hidden" title="Pause" 
+				        onclick="playPause();">&#x2590;&#x2590;</button>
+				<button id="audioStop" title="Stop" 
+				        onclick="playStop();">&#x25a0;</button>
+					<div id="audioSeek">
+						<div id="audioLoaded">
+					</div>
+				</div>
+				<ul id="audioTimes">
+					<li id="audioElapsed">00:00:00</li>
+					<li id="audioDuration">00:00:00</li>
+				</ul>
+			</div>
+		</div>
+
+		<script>
+
+			var audio = document.getElementById("audio");
+			var audioDuration = document.getElementById("audioDuration");
+			var audioElapsed = document.getElementById("audioElapsed");
+			var audioPlay = document.getElementById("audioPlay");
+			var audioPause = document.getElementById("audioPause");
+			var audioStop = document.getElementById("audioStop");
+			var audioLoaded = document.getElementById("audioLoaded");
+
+			audio.addEventListener("loadedmetadata", setDuration, false);
+			audio.addEventListener("timeupdate", setElapsed, false);
+
+			function setDuration(event) {
+				audioDuration.innerHTML = timeFormatter(audio.duration);
+			}
+
+			function setElapsed(event) {
+				audioElapsed.innerHTML = timeFormatter(audio.currentTime);
+				amountLoaded = (audio.currentTime/audio.duration)*100;
+				audioLoaded.style.width = amountLoaded + 'px';
+			}
+
+			function playPause() {
+				if (audio.paused){
+					audio.play();
+					audioPlay.className = 'hidden';
+					audioPause.className = '';
+				} else {
+					audio.pause();
+					audioPlay.className = '';
+					audioPause.className = 'hidden';
+				}
+			}
+
+			function playStop() {
+				audio.pause();
+				audio.currentTime=0;
+				audioPlay.className = '';
+				audioPause.className = 'hidden';
+			}
+
+			function timeFormatter(seconds) {
+				function zeroPad(str) {
+					if (str.length > 2) return str;
+					for (i=0; i<(2-str.length); i++) {
+						str = "0" + str;
+					}
+					return str;
+				}
+
+				var minute = 60,
+				hour = minute * 60,
+				hStr = "",
+				mStr = "",
+				sStr = "";
+				var h = Math.floor(seconds / hour);
+				hStr = zeroPad(String(h));
+				var m = Math.floor((seconds - (h * hour)) / minute);
+				mStr = zeroPad(String(m));
+				var s = Math.floor((seconds - (h * hour)) - (m * minute));
+				sStr = zeroPad(String(s));
+
+				return (hStr + ":" + mStr + ":" + sStr);
+			}
+		</script>
+	</body>
+</html>

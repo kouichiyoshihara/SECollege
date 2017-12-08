@@ -1,0 +1,81 @@
+<!DOCTYPE html> 
+
+<html lang="ja"> 
+	
+	<head> 
+		<meta charset="utf-8" />
+		<title>HTML5 Geolocation API with Google Maps</title>
+		<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	</head>
+	
+	<body>
+		<script>
+
+			if (navigator.geolocation){
+				navigator.geolocation.getCurrentPosition(
+			    	showMap, errorCallback, {
+			    		enableHighAccuracy: true,
+			    		maximumAge: 0,
+			    		timeout: 5000
+			    	}
+				);
+			} else {
+			    alert("Geolocation API is not supported.");
+			}
+
+			function showMap(position){
+		        
+		        var lat = position.coords.latitude;
+		        var lon = position.coords.longitude;
+		       
+		       	var mapCenter = 
+		       	new google.maps.LatLng(lat, lon);
+
+		       	var mapDiv = 
+		       	document.getElementById('map');
+
+		       	var mapOptions = {
+		       		zoom: 16,
+		       		center: mapCenter,
+		       		mapTypeId: 
+		       		google.maps.MapTypeId.ROADMAP
+		       	};
+
+		       	var map = 
+		       	new google.maps.Map(
+		       		mapDiv, mapOptions);
+
+		       	var marker =
+		       	new google.maps.Marker({
+		       		position: mapCenter,
+		       		map: map,
+		       		title: 'Current position'
+		       	});	        
+			}
+
+			function errorCallback(error){
+			    var message = "";
+			    switch(error.code) {
+			        case error.TIMEOUT:
+			            message = "Timeout";
+			            break;
+			        case error.POSITION_UNAVAILABLE:
+			            message = "Unavalable";
+			            break;
+			        case error.PERMISSION_DENIED:
+			            message = "Permission denied";
+			            break;
+			        case error.UNKNOWN_ERROR:
+			            message = "Unknown error:" + error.message;
+			            break;
+			    }
+
+			    alert(message);
+			}
+		</script>
+		
+		<h2>Current position on the Google Maps</h2>
+		<div id="map" style="width:640px; height:480px" align="center" />
+
+	</body> 
+</html>

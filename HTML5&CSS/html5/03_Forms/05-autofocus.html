@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Autofocus</title>
+		
+		<script>
+		
+			function hasAutoFocus() {
+			
+				// input要素がautofocus属性をサポートしているかどうか確認
+				var isSupported = 'autofocus' in document.createElement('input');
+				return isSupported;
+			}
+			
+			function setAutoFocus() {
+			
+				// ブラウザがautofocus属性をサポートしていない場合
+				if(!hasAutoFocus()) { 
+				
+					// 従来のようにJavaScriptを使用してフォーカスをセット
+					document.myForm.text1.focus();
+				}
+			}
+			
+		</script>
+	</head>
+	
+	<body onload="setAutoFocus();">
+		<form name="myForm">
+			<input type="text" name="text1"  /><br />
+			<input type="text" name="text2" /><br />
+			<input type="text" name="text3" autofocus/><br />
+			<input type="text" name="text4" /><br />
+		</form>
+	</body>
+	
+</html>

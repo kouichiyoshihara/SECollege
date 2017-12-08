@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>HTML5 Canvas API</title>
+	</head>
+	<body>
+		<canvas id="canvas1" width="300", height="200"></canvas>
+		<canvas id="canvas2" width="300", height="200"></canvas>
+		<canvas id="canvas3" width="300", height="200"></canvas>
+		<script>
+
+			// 四角形の描画
+			var ctx = document.getElementById('canvas1').getContext('2d');
+			ctx.strokeRect(10, 10, 150, 150);
+		
+			// ctx.fillStyle = 'yellow';
+			// ctx.fillRect(170, 10, 150, 150);
+
+			// 円の描画
+			ctx = document.getElementById('canvas2').getContext('2d');
+			ctx.beginPath();
+	  		// 座標 (70, 70) 
+	  		// が中心で半径60ピクセルの円を基準に、
+	  		// 0°の位置から時計回りに360°回転して描かれた円弧
+	  		// ctx.arc(x, y, radius, starte, end, anticlockwise)
+	  		// x座標、y座標、半径、開始の角度、終了の角度、falseで時計回り
+	  		ctx.arc(70, 70, 60, 0, Math.PI * 2, false); // Math.PI * 2 = 360
+	  		ctx.stroke();
+
+	  		// 透明度を指定した四角形を重ねて描画
+			ctx = document.getElementById('canvas3').getContext('2d');
+			ctx.fillStyle = "rgb(200, 0, 0)";
+			ctx.fillRect(10, 10, 120, 100);
+			
+			ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+			ctx.fillRect(30, 30, 120, 100);
+			
+		</script>
+	</body>
+</html>

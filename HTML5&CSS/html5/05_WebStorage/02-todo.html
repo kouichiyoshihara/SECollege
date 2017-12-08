@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Local storage demo</title>
+
+		<script>
+
+		var storage = localStorage;
+
+		function list() {
+			
+			var list = '';
+			for(var i = 0; i < storage.length; i++) {
+				var key = storage.key(i);
+				list += key + " : " + storage.getItem(key) +
+				"<a href='#' id='" + key + "'>×</a><br />"
+			}
+			
+			document.getElementById('list').innerHTML = list;
+
+			var aTags = document.getElementsByTagName('a');
+			for(var i = 0; i < aTags.length; i++) {
+				aTags[i].addEventListener('click', function() {
+					removeItem(this.id);
+				}, false);
+			}
+		}
+
+		function save() {
+			var k = document.getElementById('key');
+			var v = document.getElementById('value');
+			storage.setItem(k.value, v.value);
+			k.value = '';
+			v.value = '';
+			list();
+		}
+
+		function clear() {
+			storage.clear();
+			list();
+		}
+			
+		function removeItem(key) {
+			storage.removeItem(key);
+			list();
+		}
+
+		window.addEventListener('load', function() {
+			
+			list();
+			
+			document.getElementById('btnSave')
+			.addEventListener('click', function() {
+				save();
+			}, false);
+
+			document.getElementById('btnClear')
+			.addEventListener('click', function() {
+				clear();
+			}, false);
+
+		}, false);
+
+		</script>
+	</head>
+	<body>
+		Key : <input id="key" />
+		Value : <input id="value" />
+		<input type="button" id="btnSave" value="SAVE" />
+		<input type="button" id="btnClear" value="CLEAR" />
+		<div id="list" />
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		
+		<title>Transform Sample</title>
+
+		<style> 
+						
+			div {
+				background: #39C;
+				width: 300px;
+				height: 200px;
+				margin: 70px;
+				float: left;
+				font-size: 32px;
+				text-align: center;
+			}
+
+			#skew {
+				transform:skewX(30deg);
+			}
+			
+			#rotate {
+				transform:rotate(30deg);
+			}
+			
+			#scale {
+				transform:scale(0.5);
+			}
+		</style> 
+	</head>
+	
+	<body>
+		
+		<div>normal</div>
+		<div id="skew">skew</div>
+		<div id="rotate">rotate</div>
+		<div id="scale">scale</div>
+
+	</body>
+	
+</html>

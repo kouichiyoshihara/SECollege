@@ -1,0 +1,26 @@
+<!DOCTYPE html> 
+
+<html lang="ja"> 
+	
+	<head> 
+		<meta charset="utf-8" />
+		<title>WebWorkers Example</title>
+		
+		<script>
+			
+		var worker = new Worker("./worker01.js");
+		worker.addEventListener('message', function() {
+			document.getElementById('info')
+						.innerHTML = "Done!!!";
+		}, false);
+		worker.postMessage(null); // start
+			
+		</script>
+		
+	</head>
+	
+	<body>
+	<h1>画面表示</h1>
+	<h2 id="info">Processing on the background.</h2>
+	</body> 
+</html>

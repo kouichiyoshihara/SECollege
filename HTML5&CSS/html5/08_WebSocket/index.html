@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>HTML5 WebSocket</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+
+        <script>
+            $(function() {
+                var socket = io();
+                var message = $('#message');
+
+                $('#emit').on('click', e => {
+                    socket.emit('chat', message.val());
+                    message.val('');
+                });
+
+                socket.on('chat', msg => {
+                    $('#chat').append('<li>' + msg + '</li>');
+                });
+
+                socket.on('disconnect', e => {
+                    socket.close();
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <h1>WebSocket Chat</h1>
+        <input id="message" />
+        <button id="emit">送信</button>
+        <ul id="chat" />
+    </body>
+
+</html>

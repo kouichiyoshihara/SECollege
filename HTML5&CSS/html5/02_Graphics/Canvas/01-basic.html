@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>HTML5 Canvas API</title>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="500", height="500" />
+		<script>
+			var canvas = document.getElementById('myCanvas');
+			var ctx = canvas.getContext('2d');
+			
+			ctx.beginPath(); // パスの作成開始
+			ctx.moveTo(10, 10); // 座標(x, y)に移動 
+			
+			// 直線
+			ctx.lineTo(200, 100); 
+			// ctx.lineTo(10, 100);
+
+			// ctx.closePath(); // パスを閉じる
+			
+			// 線の幅と色を指定
+			// ctx.lineWidth = 5;
+			// ctx.strokeStyle = 'blue';
+
+			ctx.stroke(); // パスの描画
+			
+			// 内部の色を指定して塗りつぶし
+			// ctx.fillStyle = 'red';
+			// ctx.fill(); 
+
+		</script>
+	</body>
+</html>

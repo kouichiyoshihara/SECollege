@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML5 Geolocation API</title>
+</head>
+<body>
+<script>
+	var geo = navigator.geolocation;
+	geo.getCurrentPosition(show);
+
+	function show(position) {
+		// 緯度
+		console.log(position.coords.latitude);
+		// 経度
+		console.log(position.coords.longitude);
+	}
+</script>
+</body>
+</html>

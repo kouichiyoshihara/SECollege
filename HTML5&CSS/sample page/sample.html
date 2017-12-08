@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>HTML5 Layout sample</title>
+
+		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+		<link rel="stylesheet" href="style.css">
+
+		<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script>
+			$(function(){
+				$("#menubtn").on('click', function(){
+					$("#menu").slideToggle();
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+
+		<header>
+			<div class="header-inner">
+				<div class="site-box">
+					<section class="site">
+						<h1>
+							<a href="#">
+								<img src="img/logo-large.png" alt="TimeSwitch" width="250" height="33">
+							</a>
+						</h1>
+					</section>
+				</div>
+
+				<div class="nav-box">
+					<button type="button" id="menubtn">
+						<i class="fa fa-bars"></i><span>MENU</span>
+					</button>
+
+					<nav>
+						<ul>
+							<li><a href="#">トップ</a></li>
+							<li><a href="#">沿革</a></li>
+							<li><a href="#">事業紹介</a></li>
+							<li><a href="#">採用情報</a></li>
+							<li><a href="#">お問い合わせ</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+
+		<div class="top-box">
+			<article class="top">
+				<img src="img/header.jpg" alt="" class="topimg">
+				<p class="catch">TimeSwitchはデータの蓄積と<br>分析・解析のサービスを提供します。</p>
+			</article>
+		</div>
+
+		<article class="main">
+			<div class="abstract-box1">
+				<section class="abstract">
+					<a href="#">
+						<i class="fa fa-database"></i>
+						<h1>データの分析・解析</h1>
+						<p>目的に応じてさまざまな角度から<br>データを分析・解析します。</p>
+					</a>
+				</section>
+			</div>
+
+			<div class="abstract-box2">
+				<section class="abstract">
+					<a href="#">
+						<i class="fa fa-bar-chart-o"></i>
+						<h1>わかりやすく視覚化</h1>
+						<p>解析結果はわかりやすく視覚化し、<br>活用できるようにします。</p>
+					</a>
+				</section>
+			</div>
+
+			<div class="abstract-box3">
+				<section class="abstract">
+					<a href="#">
+						<i class="fa fa-envelope"></i>
+						<h1>24時間サポート</h1>
+						<p>24時間サポートでトラブルにも<br>	素早く対応します。</p>
+					</a>
+				</section>
+			</div>
+		</article>
+
+		<div class="etc-box">
+			<div class="news-box">
+				<section class="news">
+					<h1>お知らせ</h1>
+					<ul>
+						<li><a href="#">
+							<time datetime="2014-10-15">10/15</time>
+							<div class="text">データセンターのメンテナンスを行います。</div>
+						</a></li>
+						<li><a href="#">
+							<time datetime="2014-10-05">10/05</time>
+							<div class="text">Android版アプリ バージョン1.2をリリースしました。</div>
+						</a></li>
+						<li><a href="#">
+							<time datetime="2014-09-22">09/22</time>
+							<div class="text">セミナー開催に伴うキャンペーンのお知らせ。</div>
+						</a></li>
+						<li><a href="#">
+							<time datetime="2014-09-15">09/15</time>
+							<div class="text">グラフ表示の切替方法がわかりやすくなりました。</div>
+						</a></li>
+					</ul>
+				</section>
+			</div>
+
+			<aside>
+				<section class="follow">
+					<p class="follow-info">最新情報はこちらでも配信しています</p>
+					<ul>
+						<li><a href="#" class="follow-tw">
+						<i class="fa fa-fw fa-twitter"></i>Twitter</a></li>
+						<li><a href="#" class="follow-fb">
+						<i class="fa fa-fw fa-facebook"></i>Facebook</a></li>
+						<li><a href="#" class="follow-gp">
+						<i class="fa fa-fw fa-google-plus"></i>Google+</a></li>
+					</ul>
+				</section>
+			</aside>
+		</div>
+
+		<footer>
+			<section class="footer-inner">
+				<div class="copyright">
+					<p>Copyright &copy; TimeSwitch</p>
+				</div>
+			</section>
+		</footer>
+
+	</body>
+</html>

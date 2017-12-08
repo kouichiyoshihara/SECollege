@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+		}
+		#album {
+			border: 2px solid red;
+		}
+		#dropbox {
+			border: 2px solid blue;
+		}
+	</style>
+	<script>
+
+		function dragstart(event) {
+			event.dataTransfer.setData("id", event.target.id);
+		}
+
+		function dragover(event) {
+			event.preventDefault();
+		}
+
+		function drop(event) {
+			event.preventDefault();
+			var target = document.getElementById(event.dataTransfer.getData("id"));
+			event.currentTarget.appendChild(target);
+		}
+
+	</script>
+</head>
+<body>
+	<div id="album" ondragover="dragover(event)" ondrop="drop(event)">
+		<img id="jazz" src="img/jazz.jpg" 
+		     draggable="true"
+		     ondragstart="dragstart(event)" />
+	</div>
+	<br />
+	<div id="dropbox" 
+	     ondragover="dragover(event)" 
+	     ondrop="drop(event)"></div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>HTML5 Canvas</title>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="800", height="800"></canvas>
+		<script>
+			var canvas = document.getElementById('myCanvas');
+			var ctx = canvas.getContext('2d');
+
+			var x = 50;
+			var y = 50;
+			var delta = 3;
+
+			drawCircle(x, y);
+			
+			setInterval(() => {
+
+				if ((x > 200 || x < 30) || (y > 200 || y < 30)) {
+					delta *= -1;
+				}
+			
+				// 新しい描画位置
+				x += delta;
+				y += delta;
+
+				eraseFrame(); // 現在の描画を消去
+				drawCircle(x, y); // 新しい位置でボールを再描画
+
+			}, 20);
+			
+			function drawCircle(x, y) { // ボールの描画
+				ctx.fillStyle = "red";
+				ctx.beginPath();
+				ctx.arc(x, y, 20, 0, Math.PI * 2, false);
+				ctx.fill();
+			}
+
+			function eraseFrame() { // ボールの消去
+				canvas.width = canvas.width;
+			}
+
+		</script>
+	</body>
+</html>

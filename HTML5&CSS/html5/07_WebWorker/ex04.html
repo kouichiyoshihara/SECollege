@@ -1,0 +1,34 @@
+<!DOCTYPE html> 
+
+<html> 
+	
+	<head>
+		<title></title>
+	</head>
+	
+	<body>
+		
+		<form>
+			<h2 id="info">Processing on background </h2>
+			<progress id="progress" value="0" max="1000"></progress>
+		</form>
+		
+		<script>
+			
+			var worker = new Worker("./worker03.js");
+			var progress = document.getElementById("progress");
+
+			worker.addEventListener('message', function(event) {
+			    progress.value = event.data;
+			    if(progress.value >= 1000) {
+			    	document.getElementById("info").innerHTML = "Done!"
+			    }
+			}, false);
+			
+			worker.postMessage(null);
+			
+		</script>
+
+		<p>HTML5 Progress bar & Web Workers example</p>
+	</body> 
+</html>

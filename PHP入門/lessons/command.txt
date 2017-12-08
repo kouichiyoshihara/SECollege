@@ -1,0 +1,35 @@
+php -a
+
+echo "Hello, PHP!";
+
+quit
+
+cd php\lessons
+
+mysql -u root
+
+create user test identified by 'test';
+
+grant all on *.* to test@localhost
+identified by 'test';
+
+flush privileges;
+
+quit;
+
+mysql -u test -p
+
+show databases;
+
+use test;
+
+CREATE TABLE users (
+	id int PRIMARY KEY,
+	name VARCHAR(20) NOT NULL,
+	pass VARCHAR(10) NOT NULL
+);
+INSERT INTO users VALUES(1, 'John', 'john');
+INSERT INTO users VALUES(2, 'Bill', 'bill');
+INSERT INTO users VALUES(3, 'Eric', 'eric');
+
+SELECT * FROM users;

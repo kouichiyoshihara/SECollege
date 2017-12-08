@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>HTML5 Canvas API</title>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="700" height="200"></canvas>
+		<script>
+			var ctx = document.getElementById('myCanvas').getContext('2d');
+			
+			ctx.moveTo(10, 10);
+			ctx.bezierCurveTo(30, 90, 70, 90, 90, 10);
+			ctx.stroke();
+
+			ctx.moveTo(20, 100);
+			ctx.quadraticCurveTo(150, 10, 280, 100);
+			ctx.stroke();
+		</script>
+	</body>
+</html>

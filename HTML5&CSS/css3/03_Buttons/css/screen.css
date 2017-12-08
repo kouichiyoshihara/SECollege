@@ -1,0 +1,102 @@
+/* Global Reset
+------------------------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, button,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+/* Page specific
+------------------------------------------------------------------------------*/
+body {
+  background: #fff;
+  color: #333;
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+}
+
+
+
+ul.column li {
+  background: #ddd;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  float: left;
+  margin: 10px 0 0 10px;
+  display: block;
+  height: 150px;
+  text-align: center;
+  width: 215px;
+}
+
+button {
+  margin-top: 60px;
+}
+
+button.webkit-badge {
+  margin-top: 32px;
+}
+
+button.webkit-check {
+  margin-top: 30px;
+}
+
+button.webkit-seal {
+  margin-top: 30px;
+}
+
+button.slick-black {
+  margin-top: 56px;
+}
+
+button.cupid-green {
+  margin-top: 62px;
+}
+
+button.cupid-blue {
+  margin-top: 64px;
+}
+
+button.blue-pill {
+  margin-top: 62px;
+}
+
+button.dribbble {
+  margin-top: 60px;
+}
+
+button.thoughtbot {
+  margin-top: 54px;
+}
+
+button.punch {
+  margin-top: 54px;
+}
+
+button.fat-letters {
+  margin-top: 20px;
+}
+
+button.download-itunes {
+  margin-top: 62px;
+}

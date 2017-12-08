@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+body {
+	font-family: 'Luckiest Guy';
+	background-image: url(../img/green.png);
+	background-position: left bottom;
+	background-repeat: repeat-x;
+	background-attachment: fixed;
+}
+
+h1 {
+	font-size: 150px;
+	margin: 20px 0;
+	text-align: center;
+	color: #052faa;
+	background-image: url(../img/sky.jpg);
+	
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-animation-name: skyanimation;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-duration: 120s;
+	-webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes skyanimation {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: 1432px 0;
+	}
+}
+
+p {
+	margin-top: 50px;
+	text-align: center;
+	font-size: 36px;
+	color: darkgreen;
+	background-image: -webkit-gradient(linear, left top, left bottom, 
+                                       from(#A4E220), 
+	                                   color-stop(33%,#269916), 
+	                                   color-stop(66%,#269916), 
+	                                   color-stop(99%,#000000), 
+	                                   to(#002400));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}

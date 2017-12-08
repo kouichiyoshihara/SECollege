@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+	
+	<head>
+		<meta charset="utf-8" />
+		<title>HTML5 Various Elements</title>
+		<script>
+			function showValue(val) {
+				document.getElementById("output").value = val;
+			}
+			
+			function progressValue() {
+			
+				var progress = document.getElementById("progress");
+    
+				//  0.5秒間隔で繰り返し
+				var timer = setInterval(function() {
+				
+					// 100までの値をランダムで進捗率にプラスする
+					progress.value += Math.random() * 100;
+
+					if(progress.value >= progress.max) {
+						clearInterval(timer); // 終了
+						alert("処理完了");
+					}
+					
+				}, 500);
+			}
+		</script>
+	</head>
+	
+	<body>
+		<form action="#" autocomplete="on">
+			<table>
+				<tr>
+					<td>
+						範囲:</td><td><input type="range" min="0" max="100" onchange="showValue(this.value)" />
+						<input type="text" id="output" size="2" />
+					</td>
+				</tr>
+				<tr>
+					<td>インクリメンタル･サーチ:</td>
+					<td>
+						<input type="seach" list="keywords">
+						<datalist id="keywords">
+							<option value="Canvas">Canvas</option>
+							<option value="Web Workers">Web Workers</option>
+							<option value="WebSocket">WebSocket</option>
+						</datalist>
+					</td>
+				</tr>
+				<tr>
+					<td>色:</td>
+					<td><input type="color" /></td>
+				</tr>
+				<tr>
+					<td>プログレスバー：</td>
+					<td><progress id="progress" max="1000" /><span id="percentage" /></td>
+				</tr>
+			</table>
+		</form>
+		<button onclick="progressValue()">START</button>
+	</body>
+	
+</html>

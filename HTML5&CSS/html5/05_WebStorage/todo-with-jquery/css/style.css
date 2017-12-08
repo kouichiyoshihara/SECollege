@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+body {
+	font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+}
+
+input[type="text"] {
+	width: 150px;
+}
+
+.complete {
+	color: #CCC;
+	text-decoration: line-through;
+}
+
+.remove {
+	font-size: 10px;
+	display: inline-block;
+	padding: 3px;
+	background: #C00;
+	color: #FFF;
+	border-radius: 5px;
+	margin: 0 0 0 5px;
+	cursor: pointer;
+}
