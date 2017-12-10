@@ -32,8 +32,8 @@ args = easydict.EasyDict({
     "batchsize":100,
     # 学習の繰り返し回数
     "n_epoch":20,
-    # 中間層の数
-    "n_units":1000})
+    # 中間層の数(高精度：1000,低精度：100)
+    "n_units":100})
 
 if args.gpu > 0:
     cuda.check_cuda_available()
